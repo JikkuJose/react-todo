@@ -1,10 +1,12 @@
 var TodoApp = React.createClass({
+  eachTodo: function(key) {
+    return [<TodoItem key={key}/>]
+  },
   render: function() {
-    return <TodoItem />
+    return (
+        <ul className="list-group">
+        {this.props.children}
+        </ul>
+        );
   }
 });
-
-ReactDOM.render(
-    <TodoApp />,
-    document.getElementById('container')
-    );

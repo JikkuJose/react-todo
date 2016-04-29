@@ -1,7 +1,7 @@
 var TodoItem = React.createClass({
   getInitialState: function() {
     return {
-      isEditting: true,
+      isEditting: false,
       content: 'Default text',
     };
   },
@@ -19,28 +19,32 @@ var TodoItem = React.createClass({
   editView: function() {
     return(
         <div className="todo_item">
+        <ul className="list-group">
+        <li className="list-group-item">
         <textarea
         ref="textField"
         defaultValue={this.state.content}>
         </textarea>
-        <input
-        type="submit"
-        value="Save"
-        onClick={this.save} />
+        <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default" onClick={this.save}>Save</button>
+        <button type="button" class="btn btn-default">Delete</button>
+        </div>
+        </li>
+        </ul>
         </div>
         );
   },
   displayView: function() {
     return(
-        <div className="todo_item">
+        <li className="list-group-item">
         <p>
         {this.state.content}
         </p>
-        <input
-        type="submit"
-        value="Edit"
-        onClick={this.edit} />
+        <div class="btn-group" role="group" aria-label="...">
+        <button type="button" class="btn btn-default" onClick={this.edit}>Edit</button>
+        <button type="button" class="btn btn-default">Delete</button>
         </div>
+        </li>
         );
   },
   render: function() {
