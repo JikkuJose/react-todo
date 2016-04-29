@@ -1,0 +1,12 @@
+.cell {
+  background-color: #232323;
+  color: #9A9A9A;
+  padding: 10px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  width: 300px;
+}
+
+.shell {
+  background-color: #FF0000;
+}
