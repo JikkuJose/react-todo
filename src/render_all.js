@@ -1,13 +1,4 @@
 ReactDOM.render(
-    <TodoApp>
-    <TodoItem />
-    <TodoItem />
-    <TodoItem />
-    <TodoItem />
-    <TodoItem />
-    <TodoItem />
-    <TodoItem />
-    </TodoApp>
-    ,
+    <TodoApp />,
     document.getElementById('container')
     );

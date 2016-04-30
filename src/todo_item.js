@@ -2,13 +2,13 @@ var TodoItem = React.createClass({
   getInitialState: function() {
     return {
       isEditting: false,
-      content: 'Default text',
     };
   },
   save: function() {
+    this.props.save(this.refs.textField.value, this.props.index);
+
     this.setState({
       isEditting: false,
-      content: this.refs.textField.value,
     });
   },
   edit: function() {
@@ -16,33 +16,50 @@ var TodoItem = React.createClass({
       isEditting: true,
     });
   },
+  delete: function() {
+    this.props.delete(this.props.index);
+  },
   editView: function() {
     return(
-        <div className="todo_item">
-        <ul className="list-group">
         <li className="list-group-item">
-        <textarea
+        <div className="input-group">
+        <input
+        type="text"
+        className="form-control"
         ref="textField"
-        defaultValue={this.state.content}>
-        </textarea>
-        <div class="btn-group" role="group" aria-label="...">
-        <button type="button" class="btn btn-default" onClick={this.save}>Save</button>
-        <button type="button" class="btn btn-default">Delete</button>
+        defaultValue={this.props.content}
+        placeholder="Search for..." />
+        <span className="input-group-btn">
+        <button
+        className="btn btn-default"
+        onClick={this.save}
+        type="button">Save</button>
+        <button
+        className="btn btn-danger"
+        onClick={this.delete}
+        type="button">Delete</button>
+        </span>
         </div>
         </li>
-        </ul>
-        </div>
         );
   },
   displayView: function() {
     return(
         <li className="list-group-item">
-        <p>
-        {this.state.content}
-        </p>
-        <div class="btn-group" role="group" aria-label="...">
-        <button type="button" class="btn btn-default" onClick={this.edit}>Edit</button>
-        <button type="button" class="btn btn-default">Delete</button>
+        <div className="input-group">
+        <span
+        className="input-group-addon"
+        >{this.props.content}</span>
+        <span className="input-group-btn">
+        <button
+        className="btn btn-default"
+        onClick={this.edit}
+        type="button">Edit</button>
+        <button
+        className="btn btn-danger"
+        onClick={this.delete}
+        type="button">Delete</button>
+        </span>
         </div>
         </li>
         );
