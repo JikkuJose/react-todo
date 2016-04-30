@@ -50,13 +50,22 @@ var TodoApp = React.createClass({
   render: function() {
     return (
         <div>
+        <br/>
+        <div className="input-group">
         <input
         type="text"
-        ref="addField" />
-        <input
-        type="submit"
+        ref="addField"
+        className="form-control" />
+        <span className="input-group-btn">
+        <button
+        className="btn btn-default"
         onClick={this.add}
-        value="Add Task" />
+        type="button">
+        Add Task
+        </button>
+        </span>
+        </div>
+        <br/>
         <ul className="list-group">
         {
           this.state.tasks.map(this.eachTask)
