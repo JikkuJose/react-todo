@@ -17,6 +17,10 @@ var TodoItem = React.createClass({
     });
   },
   delete: function() {
+    this.setState({
+      isEditting: false,
+    });
+
     this.props.delete(this.props.index);
   },
   editView: function() {
